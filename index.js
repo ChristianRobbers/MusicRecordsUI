@@ -7,6 +7,9 @@ Vue.createApp({
             error: "der skete en fejl mongol"
         }
     },
+    async created() {
+        this.getMusicRecords(baseUrl)
+    },
     methods: {
         async getMusicRecords(baseUrl) {
             try {
