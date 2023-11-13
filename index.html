@@ -12,12 +12,10 @@
     <body>
 
         <div id="app">
-            <ul v-if="musicrecords.length > 0">
+            <ul id="recordlist" v-if="musicrecords.length > 0">
                 <li v-for="records in musicrecords">{{records.title}}</li>
             </ul>
         </div>
-
-
 
         <script src="index.js"></script>
     </body>
