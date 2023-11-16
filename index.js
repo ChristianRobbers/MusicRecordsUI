@@ -4,7 +4,10 @@ Vue.createApp({
     data() {
         return {
             musicrecords: [],
-            error: "der skete en fejl mongol"
+            error: "der skete en fejl mongol",
+            Title: "",
+            Artist: "",
+            isTitleFilled: false
         }
     },
     async created() {
@@ -21,6 +24,22 @@ Vue.createApp({
                 this.error = error.message
 
             }
+        },
+        async filterMusicRecords() {
+            let uri = baseUrl
+            if(this.Title != null && this.Title != "") {
+                uri = baseUrl + "?filterTitleQuery=" + this.Title 
+                this.isTitleFilled = true
+            }
+            if(this.Artist != null && this.Artist != "") {
+                if(this.isTitleFilled) {
+                    uri = uri + "&filterArtistQuery=" + this.Artist
+                } else {
+                    uri = baseUrl + "?filterArtistQuery=" + this.Artist
+                }
+            }
+            this.getMusicRecords(uri)
+            this.isTitleFilled = false
         }
     }
 }).mount('#app')
