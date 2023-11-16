@@ -12,6 +12,7 @@
     <body>
 
         <div id="app">
+<<<<<<< HEAD
             <div>
                 <input type="text" placeholder="Search for title" v-model="Title">
                 <input type="text" placeholder="Search for artist" v-model="Artist">
@@ -19,6 +20,10 @@
             </div>
             <ul v-if="musicrecords.length > 0">
                 <li v-for="records in musicrecords">{{records.title}}</li>
+=======
+            <ul id="recordlist" v-if="musicrecords.length > 0">
+                <li class="record-element" v-for="records in musicrecords">{{records.title}}</li>
+>>>>>>> 6a55da5bbc7f9465402266f82f6639929e25aa41
             </ul>
         </div>
 
